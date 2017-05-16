@@ -1,2 +1,22 @@
 <h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+
+
+
+<article>
+  <h1>
+    <%= @article.title %>
+    <small>
+      <%= link_to edit_article_path(@article) do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
+      <%= link_to article_path(@article), method: :delete, data: { confirm: "Are you sure ?" } do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </small>
+  </h1>
+  <hr>
+  <p><%= Kramdown::Document.new(@article.content).to_html.html_safe %></p>
+</article>
+
+
+<%= link_to 'List of all articles', articles_path %>

@@ -1,0 +1,13 @@
+<%= form_for(@article, class: 'form-inline') do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
